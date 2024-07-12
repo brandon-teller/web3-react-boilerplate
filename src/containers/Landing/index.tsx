@@ -12,7 +12,7 @@ export const Landing = () => {
 
   const { openChainModal } = useChainModal();
 
-  const isWrongNetwork = !chainId || !SUPPORTED_CHAINS.includes(chainId);
+  const isWrongNetwork = chainId && !SUPPORTED_CHAINS.includes(chainId);
 
   return (
     <LandingContainer data-testid='wonderland-challenge'>
