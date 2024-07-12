@@ -28,6 +28,8 @@ const connectors = connectorsForWallets(
   },
 );
 
+export const SUPPORTED_CHAINS: number[] = [sepolia.id, polygonAmoy.id];
+
 export const config = createConfig({
   chains: [sepolia, polygonAmoy],
   ssr: true,

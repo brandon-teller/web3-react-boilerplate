@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { StateContext } from '@/providers/StateProvider';
 
-const useStateContext = () => {
+export const useStateContext = () => {
   const context = useContext(StateContext);
 
   if (context === undefined) {
@@ -10,5 +10,3 @@ const useStateContext = () => {
 
   return context;
 };
-
-export default useStateContext;

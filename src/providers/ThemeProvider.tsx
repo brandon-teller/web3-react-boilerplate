@@ -1,15 +1,15 @@
 import { createContext, useMemo, useState } from 'react';
 
-import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { ThemeProvider as MuiThemeProvider, Theme as MuiTheme } from '@mui/material/styles';
 import { getMuiThemeConfig } from '@/components';
-      
+
 import { Theme, ThemeName } from '@/types';
 import { THEME_KEY, getTheme } from '@/utils';
-
 type ContextType = {
   theme: ThemeName;
   currentTheme: Theme;
   changeTheme: () => void;
+  muiTheme: MuiTheme;
 };
 
 interface StateProps {
@@ -37,6 +37,7 @@ export const ThemeProvider = ({ children }: StateProps) => {
         theme,
         currentTheme,
         changeTheme,
+        muiTheme,
       }}
     >
       <MuiThemeProvider theme={muiTheme}>{children}</MuiThemeProvider>

@@ -3,7 +3,7 @@ import { AddressStringType } from '@/types';
 
 type ContextType = {
   targetAddress: AddressStringType | undefined;
-  setTargetAddress: (val: AddressStringType) => void;
+  setTargetAddress: (val: AddressStringType | undefined) => void;
 };
 
 interface StateProps {

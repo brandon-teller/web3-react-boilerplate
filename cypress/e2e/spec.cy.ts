@@ -1,6 +1,6 @@
 describe('Renders every component', () => {
   it('Renders App component', () => {
     cy.visit('/');
-    cy.getByTestId('wonderland-trial').should('exist');
+    cy.getByTestId('wonderland-challenge').should('exist');
   });
 });
