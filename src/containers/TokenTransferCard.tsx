@@ -1,11 +1,10 @@
-import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
 import { Box, Button, Typography, styled } from '@mui/material';
 import { ERC20TokenByChain } from '@/types';
 import { useAccount, useChainId } from 'wagmi';
 import { useCallback, useEffect, useState } from 'react';
 import { useStateContext, useGetTokenAllowance, useGetTokenBalance } from '@/hooks';
-import { ApproveButton, TransferButton, MintButton, DecimalInput } from '@/components';
+import { ApproveButton, TransferButton, DecimalInput, MintButton } from '@/components';
 import { bnToNum, numToBn } from '@/utils/bigNumber';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 
@@ -58,32 +57,28 @@ export const TokenTransferCard = ({ token: tokenByChain }: TokenTransferCardProp
 
   return (
     <SCard variant='outlined'>
-      <CardContent>
-        <Box display='flex' gap={2} flexDirection='column'>
-          <Box display='flex' gap={1} alignItems='center'>
-            <Typography>
-              Token:&nbsp;<b>{token.name}</b>
-            </Typography>
-            {isConnected && <MintButton token={token} amount={numToBn(100, token.decimals)} />}
-          </Box>
-          <Typography>
-            Balance:&nbsp;
-            <b>
-              {bnToNum(balance || 0n, token.decimals)} {token.symbol}
-            </b>
-          </Typography>
-          <Typography>
-            Allowance:&nbsp;
-            <b>
-              {bnToNum(allowance || 0n, token.decimals)} {token.symbol}
-            </b>
-          </Typography>
-          <Box display='flex' alignItems='center' gap={2}>
-            <Typography>Amount:</Typography>
-            <DecimalInput value={amount} onChange={(v = '') => handleAmountChange(v)} placeholder='0' />
-          </Box>
+      <Box display='flex' gap={2} flexDirection='column' position='relative' mb={2}>
+        <Typography variant='h3'>{token.name}</Typography>
+        <Typography>
+          Balance:&nbsp;
+          <b>
+            {bnToNum(balance || 0n, token.decimals)} {token.symbol}
+          </b>
+        </Typography>
+        <Typography>
+          Allowance:&nbsp;
+          <b>
+            {bnToNum(allowance || 0n, token.decimals)} {token.symbol}
+          </b>
+        </Typography>
+        <Box display='flex' alignItems='center' gap={2}>
+          <Typography>Amount:</Typography>
+          <DecimalInput value={amount} onChange={(v = '') => handleAmountChange(v)} placeholder='0' />
         </Box>
-      </CardContent>
+        <MintButtonWrapper>
+          {isConnected && <MintButton token={token} amount={numToBn(100, token.decimals)} />}
+        </MintButtonWrapper>
+      </Box>
       {isConnected ? (
         <Box>
           <Box display='flex' alignItems='center' gap={1}>
@@ -117,4 +112,10 @@ const ErrorLabel = styled(Typography)({
   textAlign: 'center',
   fontSize: '0.75rem',
   marginTop: '0.5rem',
+});
+
+const MintButtonWrapper = styled(Box)({
+  position: 'absolute',
+  top: 0,
+  right: 0,
 });

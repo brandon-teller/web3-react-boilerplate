@@ -19,7 +19,7 @@ interface StateProps {
 export const ThemeContext = createContext({} as ContextType);
 
 export const ThemeProvider = ({ children }: StateProps) => {
-  const defaultTheme = 'dark';
+  const defaultTheme = 'light';
 
   const [theme, setTheme] = useState<ThemeName>(defaultTheme);
   const currentTheme = useMemo(() => getTheme(theme), [theme]);

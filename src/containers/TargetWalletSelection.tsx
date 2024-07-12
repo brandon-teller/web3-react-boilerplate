@@ -28,7 +28,7 @@ export const TargetWalletSelection = () => {
   return (
     <Container>
       <SBox flex={1}>
-        <Typography>Target wallet : </Typography>
+        <Typography>Target Address: </Typography>
         <Stack direction='column' gap={0.5} flex={1}>
           <Input error={!isValidAddress} value={input} onChange={handleInputChange} />
           {!isValidAddress && <Error>Enter a valid address</Error>}
