@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Web3 React Boilerplate by Brandon
+
+This is a Next.js+Web3 boilerplate project for simple ERC20 token transaction.
 
 ## Getting Started
 
@@ -16,25 +18,39 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Task Completed
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- [x] Allows you connect your wallet
+- [x] Detect the wrong network and allows you to switch between chains (Sepolia and Polygon Mumbai)
+- [x] Fetch balances of DAI and USDC tokens
+- [x] Displays both balances in a readable/human way
+- [x] Has an input for wallet address to set selected/target user
+- [x] Has an input for each token to enter the amount of tokens to be approved or transfered
+- [x] Has 2 buttons for each token: APPROVE and TRANSFER
+- [x] The inputs have the correct validations hooked to the buttons and also an error message to show to the user ('not enough funds', 'need to approve token first', etc). All of this is calculated/validated with the amount the user types
+- [x] Executes the transactions for APPROVE and TRANSFER of tokens to a user
+- [x] Some UNIT tests
+- [x] Allows you to call the Mint() function to get some tokens to test the app
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Bonuses:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [x] Organized folder/files structure
+- [x] Well defined state architecture
+- [x] Buttons with loading state
+- [x] Detect that you are in the correct network
+- [x] Some E2E tests
+- [x] UI/UX (Material UI, Responsive)
 
-## Learn More
+## Libraries
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- React v118
+- Next.js v14
+- Typescript v5
+- Material UI v5
+- RainbowKit v2
+- Viem v2.8.6
+- Wagmi v2.5.7
+- ESLint
+- Prettier
+- Cypress
+- Jest
